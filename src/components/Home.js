@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom';
 
 const Home = (props)=>{
 
@@ -24,9 +25,11 @@ const Home = (props)=>{
                                     </p>
                                     <p>Rs. {product.price}</p>
 
-                                    <a href="/view-details">
-                                        <button style={styles.button}>View product Details</button>
-                                    </a>
+                                    <Link to={'/view-details/'+product._id} >
+                                        <button style={styles.button}>
+                                            View product Details
+                                        </button>
+                                    </Link>
                                 </div>
                             </div>
                         )

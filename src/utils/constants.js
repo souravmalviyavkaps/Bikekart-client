@@ -10,6 +10,7 @@ export const API_URLS = {
     //products and ratings
     addProduct: ()=> `${API_ROOT}/products/add-product`,
     fetchProducts: ()=> `${API_ROOT}`,
+    fetchProductById: (id)=> `${API_ROOT}/products/${id}`,
     fetchRating: (productId)=> `${API_ROOT}/products/fetch-rating/${productId}`,
     rateProduct: ()=> `${API_ROOT}/products/rate-product`
 }

@@ -1,10 +1,15 @@
+import {Link} from 'react-router-dom'
+
+
 const Navbar = () => {
   return (
     <>
       <nav style={styles.nav} className="container-fluid">
-        <button style = {styles.heading}>
-            Bikekart
-        </button>
+        <Link to='/login' >
+          <button style = {styles.heading}>
+              Bikekart
+          </button>
+        </Link>
 
         <div style={styles.rightNav}>
             <button style={styles.links}>Login</button> 

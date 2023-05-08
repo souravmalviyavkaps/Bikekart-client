@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import {getProducts} from '../api';
-import {Home, Navbar} from './';
+import {Home, Navbar, Login, Register, Product} from './';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import '../styles/index.css';
 
 function App() {
@@ -23,10 +24,15 @@ function App() {
 
 
   return (
-    <div className="App">
+    <BrowserRouter className="App">
       <Navbar/>
-      <Home products={products} />
-    </div>
+      <Routes>
+        <Route path='/' element={<Home products={products}/>}></Route>
+        <Route path='/login' element={<Login/>}></Route>
+        <Route path='/register' element={<Register/>}></Route>
+        <Route path='/view-details/:id' element={<Product />} ></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

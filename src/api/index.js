@@ -24,3 +24,6 @@ export const getProducts = async () => {
   }
 }
 
+export const fetchProduct = async (id)=>{
+  const response = await API_URLS.fetchProductById(id);
+}
