@@ -1,0 +1,19 @@
+/* home-page */
+
+.products-list{
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: auto;
+    justify-content: space-evenly;
+}
+
+.item{
+    width: 350px;
+    height: 500px;
+    border: 1px solid purple;
+    padding: 5px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin: 10px;
+}
