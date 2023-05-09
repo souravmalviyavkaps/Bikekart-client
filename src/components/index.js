@@ -4,6 +4,7 @@ import Navbar from './Navbar';
 import Product from './Product';
 import Login from './Login';
 import Register from './Register';
+import RateProduct from './RateProduct';
 
 export {
     App,
@@ -11,5 +12,6 @@ export {
     Home,
     Product,
     Login, 
-    Register
+    Register,
+    RateProduct
 }

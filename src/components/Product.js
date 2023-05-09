@@ -51,7 +51,7 @@ const Product = ()=>{
                     <div className='col-lg-8 col-sm-12'>
                     <hr/>
                     <h2 style={{color: "blue"}}> Ratings and Reviews
-                        <Link>
+                        <Link to={'/rate-product/' + product._id}>
                             <button style={{display: "inline-block", fontSize: 20, marginLeft: 50}}> Rate Product</button>
                         </Link>
                     </h2>
