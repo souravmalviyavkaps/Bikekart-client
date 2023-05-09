@@ -25,5 +25,25 @@ export const getProducts = async () => {
 }
 
 export const fetchProduct = async (id)=>{
-  const response = await API_URLS.fetchProductById(id);
+  try {
+    const response = await axios.get(API_URLS.fetchProductById(id));
+    console.log(response)
+    const data = response.data;
+
+    if(response.data.success){
+      return {
+        data,
+        success: true
+      }
+    }
+
+    throw new Error(data.message);
+
+  } catch (err) {
+    console.log('Error :', err);
+    return {
+      message: err.message,
+      success: false
+    }
+  }
 }

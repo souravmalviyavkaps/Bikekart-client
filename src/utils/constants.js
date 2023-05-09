@@ -1,5 +1,5 @@
 
-const API_ROOT = `http://localhost:8001/`;
+const API_ROOT = `http://localhost:8001`;
 
 export const API_URLS = {
     //users
@@ -10,7 +10,7 @@ export const API_URLS = {
     //products and ratings
     addProduct: ()=> `${API_ROOT}/products/add-product`,
     fetchProducts: ()=> `${API_ROOT}`,
-    fetchProductById: (id)=> `${API_ROOT}/products/${id}`,
+    fetchProductById: (id)=> `${API_ROOT}/products/fetch-product/${id}`,
     fetchRating: (productId)=> `${API_ROOT}/products/fetch-rating/${productId}`,
     rateProduct: ()=> `${API_ROOT}/products/rate-product`
 }

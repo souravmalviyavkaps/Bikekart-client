@@ -1,8 +1,13 @@
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 
 const Home = (props)=>{
 
     const {products} = props;
+    const location = useNavigate();
+
+    const handleViewDetails = (e)=>{
+        location('/view-details/'+e.target.id);
+    }
 
     return (
         <>
@@ -11,7 +16,7 @@ const Home = (props)=>{
                 <div className="products-list">
                     {products.map((product)=>{
                         return (
-                            <div className="item">
+                            <div className="item" id={product._id} >
                                 <img src={product.img} alt='product-img' style={styles.image}/>
                                 <div>
                                     <p style={{fontWeight: "bold", fontSize: 20}}>{product.name}</p>
@@ -21,15 +26,14 @@ const Home = (props)=>{
                                         <span>
                                             {product.stars} <img src="/images/star.png" alt='star' style={{width: 15, height: 15, verticalAlign: 'top'}} />
                                         </span> 
-                                        : 'No ratings yet'}
+                                        : 'No ratings yet'
+                                        }
                                     </p>
                                     <p>Rs. {product.price}</p>
 
-                                    <Link to={'/view-details/'+product._id} >
-                                        <button style={styles.button}>
-                                            View product Details
-                                        </button>
-                                    </Link>
+                                    <button onClick={handleViewDetails} style={styles.button} id={product._id}>
+                                        View product Details
+                                    </button>
                                 </div>
                             </div>
                         )

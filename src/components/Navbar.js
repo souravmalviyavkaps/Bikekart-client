@@ -5,15 +5,19 @@ const Navbar = () => {
   return (
     <>
       <nav style={styles.nav} className="container-fluid">
-        <Link to='/login' >
+        <Link to='/' >
           <button style = {styles.heading}>
               Bikekart
           </button>
         </Link>
 
         <div style={styles.rightNav}>
-            <button style={styles.links}>Login</button> 
-            <button style={styles.links}>Register</button>
+            <Link to='/login'>
+              <button style={styles.links}>Login</button>  
+            </Link> 
+            <Link to='/register'>
+              <button style={styles.links}>Register</button>
+            </Link>
         </div>
       </nav>
     </>
@@ -44,7 +48,7 @@ const styles = {
   },
   links: {
     margin: 10,
-    color: "inherit",
+    color: "white",
     textDecoration: "none",
     fontSize: 18,
     backgroundColor: 'transparent',
