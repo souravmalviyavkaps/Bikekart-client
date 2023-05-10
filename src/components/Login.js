@@ -23,12 +23,15 @@ const Login = ()=>{
         }
 
         const response = await loginUser(credentials);
+        
+        if(response.success){
+            navigate('/');
+        }else{
+            alert(response.message)
+        }
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('user_id', response.data.userId);
 
-        if(response.success){
-            navigate('/');
-        }
         
     }
 

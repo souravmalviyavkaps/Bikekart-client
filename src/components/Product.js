@@ -1,6 +1,7 @@
 import {Link, useParams} from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import {fetchProduct} from '../api';
+import ReactStars from 'react-rating-stars-component';
 
 const Product = ()=>{
 
@@ -27,10 +28,15 @@ const Product = ()=>{
                     <img src={product.img} alt='product-img' className='col col-lg-4 col-sm-12' />
                     <div className='col col-lg-8 col-sm-12'>
                         <p style={{fontWeight: "bold", fontSize: 20}}>{product.name}</p>
-                        <p style={{backgroundColor: "lightgreen", display: "inline-block", padding:'1px 3px', borderRadius: '5px'}}>
+                        <p style={{backgroundColor: "white", display: "inline-block", padding:'1px 3px', borderRadius: '5px'}}>
                             {product.stars ? 
                             <span>
-                                {(product.stars)} <img src="/images/star.png" alt='star' style={{width: 20, height: 20, verticalAlign: 'top'}} />
+                                {/* {(product.stars)} <img src="/images/star.png" alt='star' style={{width: 20, height: 20, verticalAlign: 'top'}} /> */}
+                                {<ReactStars 
+                                    value={product.stars}
+                                    size={25}
+                                    edit={false}
+                                />}
                             </span> 
                             : 'No ratings yet'
                         }

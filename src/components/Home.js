@@ -1,8 +1,25 @@
+import { useEffect, useState } from 'react';
 import {Link, useNavigate} from 'react-router-dom';
+import {getProducts} from '../api';
 
-const Home = (props)=>{
+const Home = ()=>{
 
-    const {products} = props;
+    const [products, setProducts] = useState([]);
+
+    const fetchProducts = async ()=>{
+      const response = await getProducts();
+  
+      const data = response.data.data;
+      setProducts(data);
+    }
+  
+    //useEffect hook
+    useEffect(()=>{
+      
+      fetchProducts();
+  
+    }, []);
+  
     const location = useNavigate();
 
     const handleViewDetails = (e)=>{

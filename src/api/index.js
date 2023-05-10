@@ -105,7 +105,6 @@ export const loginUser = async (credentials)=>{
     }
   } catch (error) {
     console.log('Error in logging in : ', error);
-    document.getElementById('message').innerHTML = error.message;
     return {
       message: error.message,
       success: false
