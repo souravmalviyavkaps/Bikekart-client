@@ -63,7 +63,7 @@ export const rateProduct = async body => {
     }
     throw new Error(response.data.message)
   } catch (error) {
-    console.log('Error : ', error)
+    console.log('Error while rating the product : ', error)
     return {
       message: error.message,
       success: false,

@@ -31,7 +31,8 @@ const RateProduct = ()=>{
        console.log(response);
        
        if(response.success){
-        navigate('/');
+        // navigate('/view-details/'+productid);
+        navigate('/')
        }else {
             alert(response.message)
        }
