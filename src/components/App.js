@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import {getProducts} from '../api';
-import {Home, Navbar, Login, Register, Product, RateProduct} from './';
+import {Home, Navbar, Login, Register, Product, RateProduct, Profile} from './';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import '../styles/index.css';
 
@@ -32,6 +32,7 @@ function App() {
         <Route path='/register' element={<Register/>}></Route>
         <Route path='/view-details/:id' element={<Product />} ></Route>
         <Route path='/rate-product/:productid' element={<RateProduct/>}></Route>
+        <Route path='/profile' element={<Profile />}></Route>
       </Routes>
     </BrowserRouter>
   );

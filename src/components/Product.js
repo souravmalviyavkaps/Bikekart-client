@@ -2,7 +2,6 @@ import {Link, useParams} from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import {fetchProduct} from '../api';
 
-
 const Product = ()=>{
 
     const [product, setProduct] = useState([]);
@@ -31,7 +30,7 @@ const Product = ()=>{
                         <p style={{backgroundColor: "lightgreen", display: "inline-block", padding:'1px 3px', borderRadius: '5px'}}>
                             {product.stars ? 
                             <span>
-                                {product.stars} <img src="/images/star.png" alt='star' style={{width: 15, height: 15, verticalAlign: 'top'}} />
+                                {(product.stars)} <img src="/images/star.png" alt='star' style={{width: 20, height: 20, verticalAlign: 'top'}} />
                             </span> 
                             : 'No ratings yet'
                         }
@@ -51,6 +50,7 @@ const Product = ()=>{
                     <div className='col-lg-8 col-sm-12'>
                     <hr/>
                     <h2 style={{color: "blue"}}> Ratings and Reviews
+                    {/* rate-product button */}
                         <Link to={'/rate-product/' + product._id}>
                             <button style={{display: "inline-block", fontSize: 20, marginLeft: 50}}> Rate Product</button>
                         </Link>

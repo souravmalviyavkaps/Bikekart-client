@@ -14,5 +14,3 @@ export const API_URLS = {
     fetchRating: (productId)=> `${API_ROOT}/products/fetch-rating/${productId}`,
     rateProduct: ()=> `${API_ROOT}/products/rate-product`
 }
-
-export const LOCALSTORAGE_TOKEN_KEY = 'bikekart_key'

@@ -1,7 +1,16 @@
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 
 const Navbar = () => {
+
+  const navigate = useNavigate();
+  const logoutUser = ()=>{
+    localStorage.removeItem('token');
+    localStorage.removeItem('user_id');
+    navigate('/');
+    
+  }
+
   return (
     <>
       <nav style={styles.nav} className="container-fluid">
@@ -10,15 +19,26 @@ const Navbar = () => {
               Bikekart
           </button>
         </Link>
-
-        <div style={styles.rightNav}>
-            <Link to='/login'>
-              <button style={styles.links}>Login</button>  
+        {localStorage.getItem('token') ? 
+            <div style={styles.rightNav}>
+            <Link to='/profile'>
+              <button style={{...styles.links, borderRadius: '50%'}}>
+                <img src="/images/user.png" alt="" style={{width: 25, height: 25}}/>
+              </button>  
             </Link> 
-            <Link to='/register'>
-              <button style={styles.links}>Register</button>
-            </Link>
+              <button style={styles.links} onClick={logoutUser}>Logout</button>
+          </div>  
+        : 
+          <div style={styles.rightNav}>
+          <Link to='/login'>
+            <button style={styles.links}>Login</button>  
+          </Link> 
+          <Link to='/register'>
+            <button style={styles.links}>Register</button>
+          </Link>
         </div>
+        }
+        
       </nav>
     </>
   )

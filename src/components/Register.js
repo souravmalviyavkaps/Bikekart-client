@@ -1,8 +1,15 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { registerUser } from "../api";
 
 const Register = () =>{
+    const navigate = useNavigate();
+
+    useEffect(()=>{
+        if(localStorage.getItem('token')){
+            navigate('/');
+        }
+    })
 
     const handleSubmit = async (e)=>{
         e.preventDefault();
@@ -46,7 +53,7 @@ const Register = () =>{
 
 
                 <h5 style={{textAlign: 'center'}}>Already Registerd? 
-                    <Link to='/login'> Login </Link>
+                    <Link to='/login'> Login here</Link>
                 </h5>
             </form>
         </>
