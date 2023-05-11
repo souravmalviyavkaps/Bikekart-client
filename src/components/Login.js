@@ -14,6 +14,8 @@ const Login = ()=>{
 
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
+    const [error, setError] = useState();
+
 
     const handleSubmit = async (e)=>{
         e.preventDefault();
@@ -27,7 +29,7 @@ const Login = ()=>{
         if(response.success){
             navigate('/');
         }else{
-            alert(response.message)
+            setError(response.message);
         }
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('user_id', response.data.userId);
@@ -38,6 +40,9 @@ const Login = ()=>{
     return(
         <>
             <form onSubmit={handleSubmit} style={styles.form}>
+                
+                <h5 className="text-danger text-center">{error}</h5>
+
                 <h1 style={{color: 'darkgrey', textAlign: 'center', fontWeight: 'bold'}} >Login</h1>
 
                 <input name="email" type="email" onChange={(e)=> setEmail(e.target.value)} placeholder="Enter email" />

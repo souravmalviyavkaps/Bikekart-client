@@ -21,12 +21,16 @@ const Register = () =>{
             password,
             confirm_password
         }
-        console.log(fname, lname, email, phone, password, confirm_password);
+
+
 
         const response = await registerUser(userData);
-        console.log(response)
-        alert(response.message);
-
+        
+        if(response.success){
+            navigate('/login');
+        }else{
+            alert(response.message);
+        }
     }
     
     const [fname, setFname] = useState('');
