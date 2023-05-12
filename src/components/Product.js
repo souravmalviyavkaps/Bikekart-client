@@ -56,10 +56,12 @@ const Product = ()=>{
                     <div className='col-lg-8 col-sm-12'>
                     <hr/>
                     <h2 style={{color: "blue"}}> Ratings and Reviews
-                    {/* rate-product button */}
+
+{/* rate-product button */}
                         <Link to={'/rate-product/' + product._id}>
-                            <button style={{display: "inline-block", fontSize: 20, marginLeft: 50}}> Rate Product</button>
+                            <button style={{display: "inline-block", fontSize: 20, marginLeft: 50}} onClick={()=>{}}> Rate Product</button>
                         </Link>
+
                     </h2>
                         {product.ratings && product.ratings.length ?  product.ratings.map((rating)=>{
                             return (
@@ -73,9 +75,10 @@ const Product = ()=>{
                                     <p>
                                         {rating.review}
                                     </p>
-                                    <p style={{color: 'grey', fontSize: 'small'}}> 
+                                    <pre style={{color: 'grey', fontSize: 'small'}}> 
                                         {rating.user.fname + " " + rating.user.lname}
-                                    </p>
+                                        { "     "+ parseInt( new Date(Date.now()).getMonth() - new Date(rating.user.createdAt).getMonth()) + " months ago"}
+                                    </pre>
                                     <hr/>
                                 </>
                             )
